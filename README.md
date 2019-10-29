@@ -39,9 +39,9 @@ Additionaly you can use options:
 
 ```javascript
 @Cron('* * * * * *', {
-		launchOnInit: true,
-		sync: true,
-	})
+	launchOnInit: true,
+	sync: true,
+})
 ```
 
 -   launchOnInit - Launch job one time right after start

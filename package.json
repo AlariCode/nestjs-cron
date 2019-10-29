@@ -1,5 +1,5 @@
 {
-	"name": "nestjs-cronjob",
+	"name": "nestjs-cron",
 	"version": "1.0.0",
 	"description": "NestJS cron Module",
 	"main": "./dist/index.js",
