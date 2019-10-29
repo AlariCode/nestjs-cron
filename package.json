@@ -1,0 +1,41 @@
+{
+	"name": "nestjs-cronjob",
+	"version": "1.0.0",
+	"description": "NestJS cron Module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"prepare": "tsc -p tsconfig.json"
+	},
+	"author": "Anton Larichev <antonlarichev@gmail.com>",
+	"keywords": [
+		"cron",
+		"typescript",
+		"nodejs",
+		"nestjs"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AlariCode/nestjs-cron"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/AlariCode/nestjs-cron/issues"
+	},
+	"homepage": "https://github.com/AlariCode/nestjs-cron",
+	"dependencies": {
+		"node-cron": "^2.0.3",
+		"reflect-metadata": "^0.1.13"
+	},
+	"devDependencies": {
+		"@nestjs/common": "^6.0.5",
+		"@types/node": "^12.11.7",
+		"@types/node-cron": "^2.0.2",
+		"ts-node": "^7.0.1",
+		"tslint": "^5.8.0",
+		"typescript": "^3.2.2"
+	},
+	"peerDependencies": {
+		"@nestjs/common": "^6.5.3"
+	}
+}
