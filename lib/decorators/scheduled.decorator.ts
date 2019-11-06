@@ -8,21 +8,23 @@ export function Scheduled(): ClassDecorator {
 		target = class extends (target as { new (...args): any }) {
 			constructor(...args) {
 				super(...args);
-				jobs.forEach(async job => {
-					let isReady: boolean = true;
-					if (job.launchOnInit) {
-						isReady = false;
-						job.sync ? await this[job.methodName]() : this[job.methodName]();
-						isReady = true;
-					}
-					schedule(job.cron, async () => {
-						if (isReady) {
+				if (jobs) {
+					jobs.forEach(async job => {
+						let isReady: boolean = true;
+						if (job.launchOnInit) {
 							isReady = false;
 							job.sync ? await this[job.methodName]() : this[job.methodName]();
 							isReady = true;
 						}
+						schedule(job.cron, async () => {
+							if (isReady) {
+								isReady = false;
+								job.sync ? await this[job.methodName]() : this[job.methodName]();
+								isReady = true;
+							}
+						});
 					});
-				});
+				}
 			}
 		};
 		return target;

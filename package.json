@@ -1,6 +1,6 @@
 {
 	"name": "nestjs-cron",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "NestJS cron Module",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
