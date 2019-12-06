@@ -20,11 +20,13 @@ import { CronModule } from 'nestjs-cron';
 export class AppModule {}
 ```
 
-To use cron, decorate your class with `@Scheduled()` and method with `@Cron()`
+To use cron, decorate your class with `@Scheduled()` and method with `@Cron()`.
+Your class has to be a provider or a controller that is declared in any module.
 
 ```javascript
 import { Cron, Scheduled } from 'nestjs-cron';
 
+@Injectable()
 @Scheduled()
 export class MyClass {
 	@Cron('* * * * * *')
