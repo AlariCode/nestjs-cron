@@ -1,5 +1,14 @@
 # NestJS cron Module
 
+![alt cover](https://github.com/AlariCode/nestjs-cron/raw/master/img/logo.jpg)
+
+**More NestJS libs on [alariblog.ru](https://alariblog.ru)**
+
+[![npm version](https://badgen.net/npm/v/nestjs-cron)](https://www.npmjs.com/package/nestjs-cron)
+[![npm version](https://badgen.net/npm/license/nestjs-cron)](https://www.npmjs.com/package/nestjs-cron)
+[![npm version](https://badgen.net/github/open-issues/AlariCode/nestjs-cron)](https://github.com/AlariCode/nestjs-cron/issues)
+[![npm version](https://badgen.net/github/prs/AlariCode/nestjs-cron)](https://github.com/AlariCode/nestjs-cron/pulls)
+
 NestJS cron package allows you easily setup cron for your controllers or services.
 
 ```bash
