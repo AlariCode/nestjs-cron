@@ -57,3 +57,29 @@ Additionaly you can use options:
 
 -   launchOnInit - Launch job one time right after start
 -   sync - Wait for method to finish before launching next tick if your function takes more time then cron.
+
+## Cron Intercepter
+To intercept cron you can use `@CronIntercepter` decorator. You pass class that implements `CronIntercepterClass` as a parameter. It has one `intercept` method that returns `Promise<boolean>`.
+
+``` javascript
+export class MyIntercepter implements CronIntercepterClass {
+  async intercept() {
+    return false;
+  }
+}
+```
+
+Usage example:
+``` javascript
+@Scheduled()
+@Injectable()
+export class AppService {
+  @CronIntercepter(MyIntercepter)
+  @Cron('* * * * * *')
+  getHello() {
+    console.log('test');
+  }
+}
+```
+
+If `intercept` method returns `true` your cron will run as planned. If false method run will be skipped.
