@@ -15,20 +15,6 @@ NestJS cron package allows you easily setup cron for your controllers or service
 npm i nestjs-cron
 ```
 
-Then register module in your root app.module
-
-```javascript
-import { CronModule } from 'nestjs-cron';
-
-@Module({
-	imports: [
-		// ...
-		CronModule.forRoot(),
-	],
-})
-export class AppModule {}
-```
-
 To use cron, decorate your class with `@Scheduled()` and method with `@Cron()`.
 Your class has to be a provider or a controller that is declared in any module.
 
@@ -59,26 +45,28 @@ Additionaly you can use options:
 -   sync - Wait for method to finish before launching next tick if your function takes more time then cron.
 
 ## Cron Intercepter
+
 To intercept cron you can use `@CronIntercepter` decorator. You pass class that implements `CronIntercepterClass` as a parameter. It has one `intercept` method that returns `Promise<boolean>`.
 
-``` javascript
+```javascript
 export class MyIntercepter implements CronIntercepterClass {
-  async intercept() {
-    return false;
-  }
+	async intercept() {
+		return false;
+	}
 }
 ```
 
 Usage example:
-``` javascript
+
+```javascript
 @Scheduled()
 @Injectable()
 export class AppService {
-  @CronIntercepter(MyIntercepter)
-  @Cron('* * * * * *')
-  getHello() {
-    console.log('test');
-  }
+	@CronIntercepter(MyIntercepter)
+	@Cron('* * * * * *')
+	getHello() {
+		console.log('test');
+	}
 }
 ```
 

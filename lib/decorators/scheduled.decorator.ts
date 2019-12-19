@@ -3,9 +3,9 @@ import { schedule } from 'node-cron';
 import { ICronMeta } from '../interfaces/cron-meta.interface';
 
 export function Scheduled(): ClassDecorator {
-	return function(target: any) {
+	return function(target: any): any {
 		const jobs: ICronMeta[] = Reflect.getMetadata(CRON_META, target.prototype);
-		target = class extends (target as { new (...args): any }) {
+		return class extends (target as { new (...args): any }) {
 			constructor(...args) {
 				super(...args);
 				if (jobs) {
@@ -27,6 +27,5 @@ export function Scheduled(): ClassDecorator {
 				}
 			}
 		};
-		return target;
 	};
 }
